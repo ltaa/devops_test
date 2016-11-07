@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devops.iml" filepath="$PROJECT_DIR$/.idea/modules/devops.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devops_main.iml" filepath="$PROJECT_DIR$/.idea/modules/devops_main.iml" group="devops" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devops_test.iml" filepath="$PROJECT_DIR$/.idea/modules/devops_test.iml" group="devops" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simpleChat/simpleChat.iml" filepath="$PROJECT_DIR$/.idea/modules/simpleChat/simpleChat.iml" group="simpleChat" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simpleChat/simpleChat_main.iml" filepath="$PROJECT_DIR$/.idea/modules/simpleChat/simpleChat_main.iml" group="simpleChat" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simpleChat/simpleChat_test.iml" filepath="$PROJECT_DIR$/.idea/modules/simpleChat/simpleChat_test.iml" group="simpleChat" />
+    </modules>
+  </component>
+</project>
