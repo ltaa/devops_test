@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\simpleChat-1.0-SNAPSHOT.jar;%APP_HOME%\lib\jetty-server-9.4.0.M0.jar;%APP_HOME%\lib\websocket-server-9.4.0.M0.jar;%APP_HOME%\lib\jetty-webapp-9.4.0.M0.jar;%APP_HOME%\lib\websocket-servlet-9.4.0.M0.jar;%APP_HOME%\lib\javax.servlet-api-3.1.0.jar;%APP_HOME%\lib\jetty-http-9.4.0.M0.jar;%APP_HOME%\lib\jetty-io-9.4.0.M0.jar;%APP_HOME%\lib\websocket-common-9.4.0.M0.jar;%APP_HOME%\lib\websocket-client-9.4.0.M0.jar;%APP_HOME%\lib\jetty-servlet-9.4.0.M0.jar;%APP_HOME%\lib\jetty-xml-9.4.0.M0.jar;%APP_HOME%\lib\websocket-api-9.4.0.M0.jar;%APP_HOME%\lib\jetty-util-9.4.0.M0.jar;%APP_HOME%\lib\jetty-security-9.4.0.M0.jar
+set CLASSPATH=%APP_HOME%\lib\simpleChat.jar;%APP_HOME%\lib\jetty-server-9.4.0.M0.jar;%APP_HOME%\lib\websocket-server-9.4.0.M0.jar;%APP_HOME%\lib\jetty-webapp-9.4.0.M0.jar;%APP_HOME%\lib\websocket-servlet-9.4.0.M0.jar;%APP_HOME%\lib\javax.servlet-api-3.1.0.jar;%APP_HOME%\lib\jetty-http-9.4.0.M0.jar;%APP_HOME%\lib\jetty-io-9.4.0.M0.jar;%APP_HOME%\lib\websocket-common-9.4.0.M0.jar;%APP_HOME%\lib\websocket-client-9.4.0.M0.jar;%APP_HOME%\lib\jetty-servlet-9.4.0.M0.jar;%APP_HOME%\lib\jetty-xml-9.4.0.M0.jar;%APP_HOME%\lib\websocket-api-9.4.0.M0.jar;%APP_HOME%\lib\jetty-util-9.4.0.M0.jar;%APP_HOME%\lib\jetty-security-9.4.0.M0.jar
 
 @rem Execute simpleChat
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SIMPLE_CHAT_OPTS%  -classpath "%CLASSPATH%" main.Main %CMD_LINE_ARGS%

@@ -1,0 +1,10 @@
+- hosts: all
+
+  tasks:
+    - name: build docker
+      command: docker build -t myimage {{docker_file_dir}}
+#      docker_image:
+#        path: /vagrant/devops/simpleChat/build/docker
+#        path: '{{docker_file_dir}}'
+#        name: myimage
+#        tag: testimage

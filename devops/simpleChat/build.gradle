@@ -14,7 +14,7 @@ buildscript {
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'java'
 apply plugin: 'jetty'
-apply plugin: 'docker'
+//apply plugin: 'docker'
 apply plugin: 'application'
 
 sourceCompatibility = 1.8
@@ -39,19 +39,59 @@ shadowJar {
     version = "0.0.1"
     classifier = null
     configurations = [project.configurations.compile]
+
+    doLast{ buildDocker.execute() }
 }
 
+//
+//task buildDocker(type: Docker, dependsOn: shadowJar) {
+//    push = false
+//    String str = shadowJar.baseName
+//    applicationName = str.toLowerCase()
+//    dockerfile = file('src/main/docker/Dockerfile')
+//    doFirst {
+//        copy {
+//            from shadowJar
+//            into stageDir
+//        }
+//    }
+//
+//}
 
-task buildDocker(type: Docker, dependsOn: shadowJar) {
-    push = false
-    String str = shadowJar.baseName
-    applicationName = str.toLowerCase()
-    dockerfile = file('src/main/docker/Dockerfile')
-    doFirst {
-        copy {
-            from shadowJar
-            into stageDir
-        }
+task buildDocker(type:Exec) {
+    File dockerfile = file('src/main/docker/Dockerfile');
+
+    File dockerBuildRoot = file(buildDir.toString() + File.separator + "docker");
+    if (!dockerBuildRoot.exists() ) {
+        dockerBuildRoot.mkdir();
+    } else {
+        if(!dockerBuildRoot.isDirectory())
+            return;
     }
 
+    copy {
+        from shadowJar
+        into dockerBuildRoot
+    }
+
+    copy {
+        from dockerfile
+        into dockerBuildRoot
+    }
+
+    String rdir = rootDir.toString();
+    String rproj = rootProject.name.toString();
+    String myRoot = rdir.substring(0, rdir.length() - rproj.length());
+
+    String curProj = projectDir.toString().substring(myRoot.length());
+
+    executable = "ansible-playbook"
+    args += "-e"
+    args += "docker_file_dir=/vagrant/" + curProj + "/build/docker/";
+    args += "-i"
+    args += myRoot + "ansible/inventory"
+    args += myRoot + "ansible/buildDocker/buildDocker.yml"
+
+//    executable = "touch"
+//    args += "test"
 }

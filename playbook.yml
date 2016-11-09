@@ -8,13 +8,13 @@
       file: state=directory mode=0700 dest=/root/.ssh/
 
     - name: push rsa keys
-      copy: src=~/.ssh/id_rsa.pub dest=/root/.ssh/ owner=root mode=0600
+      copy: src=~/.ssh/id_rsa.pub dest=/root/.ssh/authorized_keys owner=root mode=0600
       register: rsa
       ignore_errors: yes
 
     - name: push dsa keys
-      copy: src=~/.ssh/id_dsa.pub dest=/root/.ssh/ owner=root mode=0600
+      copy: src=~/.ssh/id_dsa.pub dest=/root/.ssh/authorized_keys owner=root mode=0600
       when: rsa | failed
 
-    - name: add user to docker group
-      command: usermod -aG docker $USER
+#    - name: add user to docker group
+#      command: usermod -aG docker $USER

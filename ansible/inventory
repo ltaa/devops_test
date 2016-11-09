@@ -1,0 +1,1 @@
+test.example.org ansible_host=192.168.3.14 ansible_user=root
