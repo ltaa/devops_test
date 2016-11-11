@@ -40,7 +40,7 @@ shadowJar {
     classifier = null
     configurations = [project.configurations.compile]
 
-    doLast{ buildDocker.execute() }
+//    doLast{ buildDocker.execute() }
 }
 
 //
